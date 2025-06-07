@@ -171,12 +171,149 @@ const scoringExplanation = {
 // Define available topics with their labels
 const topicOptions = [
   { value: "nuclear", label: "Nuclear disarmament" },
-  { value: "environmental", label: "Environmental treaties" },
-  { value: "business", label: "Business negotiations" },
   { value: "roommate", label: "Roommate chore sharing" },
-  { value: "animal", label: "Animal kingdom alliances" },
+  { value: "social_media", label: "Social media sharing" },
+  { value: "public_health", label: "Public health compliance" },
+  { value: "workplace", label: "Workplace collaboration" },
+  { value: "intimate", label: "Intimate relationships" },
   { value: "custom", label: "Custom topic" },
 ] as const;
+
+// Add detailed topic explanations
+const topicExplanations = {
+  nuclear: {
+    title: "Nuclear Disarmament",
+    description:
+      "Negotiations between nuclear powers to reduce or eliminate nuclear weapons.",
+    context:
+      "Two nuclear-armed nations engage in a series of high-stakes negotiations to reduce their nuclear arsenals. Each country must decide whether to honor agreements and dismantle weapons, or maintain/expand their arsenal secretly.",
+    historicalBackground:
+      "Since the Cold War, nuclear powers have engaged in numerous disarmament talks with varying degrees of success. The Cuban Missile Crisis showed how close the world came to nuclear conflict, while treaties like SALT I, SALT II, and New START demonstrate the potential for cooperation.",
+    gameTheoryApplication:
+      "This scenario represents a classic security dilemma. While both countries benefit from mutual disarmament (reduced military spending, increased global security), there's a strong temptation to defect (maintain secret weapons for strategic advantage). Verification mechanisms and trust-building are crucial.",
+    psychologicalFactors:
+      "Leaders must balance nationalism, historical grievances, domestic political pressures, and personal legacy concerns against global stability goals. Fear and suspicion often drive decision-making more than rational calculations. Psychological research shows how cognitive biases like loss aversion and overconfidence can derail cooperation efforts even when rational calculations favor disarmament.",
+    realWorldExamples: [
+      "US-Soviet Union arms control negotiations during the Cold War",
+      "North Korean nuclear program negotiations",
+      "Iran nuclear deal (JCPOA)",
+      "India-Pakistan nuclear tensions",
+    ],
+  },
+  roommate: {
+    title: "Roommate Chore Sharing",
+    description:
+      "Everyday cooperation challenges between roommates sharing living spaces.",
+    context:
+      "Roommates must repeatedly decide whether to complete their share of household chores or free-ride on others' efforts. Each decision affects the cleanliness of shared spaces and relationship dynamics.",
+    historicalBackground:
+      "Shared living arrangements create microcosms of cooperation problems found in larger societies. Throughout history, communities have developed formal and informal systems to manage shared resources and responsibilities.",
+    gameTheoryApplication:
+      "This scenario demonstrates how repeated interactions, direct communication, and social enforcement mechanisms can overcome collective action problems. Unlike anonymous one-shot games, social relationships provide opportunities for reciprocity and reputation effects.",
+    psychologicalFactors:
+      "Differing cleanliness standards, conflict avoidance tendencies, and varying sensitivities to fairness affect cooperation. Social cohesion, direct communication, and emotional connections can override narrow self-interest calculations. Research shows that implicit norms often form without explicit discussion, and violation of these norms triggers strong emotional responses that can damage relationships despite their seemingly trivial nature.",
+    realWorldExamples: [
+      "College dormitory shared cleaning responsibilities",
+      "Family household division of labor",
+      "Communal living arrangements",
+      "Shared workspace maintenance",
+    ],
+  },
+  social_media: {
+    title: "Social Media Sharing",
+    description:
+      "Digital information sharing and privacy dilemmas in online networks.",
+    context:
+      "Social media users must decide whether to share accurate personal information and respect others' privacy, or exploit shared information for personal gain while protecting their own privacy.",
+    historicalBackground:
+      "The rise of social media platforms has created unprecedented cooperation dilemmas around privacy, information sharing, and digital reputation. These platforms have transformed from simple connection tools to complex ecosystems where cooperation and defection have real-world consequences.",
+    gameTheoryApplication:
+      "Social media creates nested prisoner's dilemmas where users face tradeoffs between privacy and connection, authenticity and self-presentation, and information sharing versus withholding. Network effects and virality create unique incentive structures that classical game theory struggles to model.",
+    psychologicalFactors:
+      "Fear of missing out (FOMO), social comparison, reputation management, and identity construction strongly influence online behavior. Psychological research reveals how the digital environment exploits cognitive vulnerabilities - attention scarcity, variable reward mechanisms, and confirmation bias - creating cooperation challenges unique to online spaces. The psychological distance in digital communication often reduces empathy and increases defection rates.",
+    realWorldExamples: [
+      "Sharing personal information despite privacy concerns",
+      "Spreading unverified information during crisis events",
+      "Performative activism versus genuine advocacy",
+      "Content creation versus content consumption imbalances",
+    ],
+  },
+  public_health: {
+    title: "Public Health Compliance",
+    description:
+      "Individual compliance with public health measures during disease outbreaks.",
+    context:
+      "During health crises like pandemics, individuals must decide whether to follow public health guidelines (vaccination, masking, isolation) that impose personal costs but benefit the community, or prioritize personal convenience.",
+    historicalBackground:
+      "From historical quarantines to modern pandemic responses, public health compliance represents one of society's oldest and most consequential cooperation challenges. The COVID-19 pandemic highlighted how individual decisions aggregate to determine collective outcomes.",
+    gameTheoryApplication:
+      "Public health compliance exemplifies the 'tragedy of the commons' where individual rational decisions can lead to collectively irrational outcomes. Vaccination creates 'herd immunity' as a public good that benefits everyone once a threshold is reached, creating complex incentive dynamics.",
+    psychologicalFactors:
+      "Risk perception, trust in institutions, cultural worldviews, and information processing biases profoundly influence health decisions. Research shows that social identity often trumps factual information in determining compliance behaviors. Moral emotions like disgust and anger play outsized roles in health-related decision-making, often overwhelming rational cost-benefit analysis. Psychological reactance to perceived freedom restrictions can paradoxically increase risky behaviors.",
+    realWorldExamples: [
+      "COVID-19 masking and vaccination compliance",
+      "Antibiotic resistance from medication overuse",
+      "Vaccine hesitancy movements",
+      "Quarantine adherence during outbreaks",
+    ],
+  },
+  workplace: {
+    title: "Workplace Collaboration",
+    description:
+      "Cooperation dynamics in team projects and organizational contexts.",
+    context:
+      "Colleagues working on shared projects must decide whether to contribute their full effort and share credit fairly, or minimize their contribution while maximizing personal recognition.",
+    historicalBackground:
+      "Modern organizational structures have evolved from strict hierarchies to complex collaborative networks, creating new dynamics where cooperation and competition coexist. The rise of knowledge work has made contribution measurement increasingly difficult, intensifying free-rider problems.",
+    gameTheoryApplication:
+      "Workplace collaboration combines elements of public goods games, assurance games, and volunteer's dilemmas. Organizations attempt to align incentives through compensation structures, but incomplete contracts and imperfect monitoring create persistent cooperation challenges.",
+    psychologicalFactors:
+      "Organizational psychology research identifies key factors that influence workplace cooperation: psychological safety, perceived fairness, leadership styles, and team cohesion. Status competition, imposter syndrome, and attribution biases color how people perceive their own and others' contributions. Intrinsic versus extrinsic motivation tensions create complex dynamics where well-intentioned incentive systems can backfire by crowding out intrinsic motivation.",
+    realWorldExamples: [
+      "Open source software contribution imbalances",
+      "Academic research authorship conflicts",
+      "Corporate innovation initiatives",
+      "Remote work coordination challenges",
+    ],
+  },
+  intimate: {
+    title: "Intimate Relationships",
+    description:
+      "Cooperation and trust in romantic partnerships and close friendships.",
+    context:
+      "Partners in intimate relationships repeatedly decide whether to prioritize the relationship's wellbeing through honesty and vulnerability, or protect themselves through withholding and strategic behavior.",
+    historicalBackground:
+      "Intimate relationships represent humanity's most fundamental cooperation arena, evolving from primarily economic arrangements to complex emotional partnerships. Cultural practices around courtship, marriage, and friendship have developed sophisticated mechanisms to foster trust and cooperation.",
+    gameTheoryApplication:
+      "Intimate relationships represent repeated, indefinite games with incomplete information where emotional payoffs often outweigh material considerations. Commitment problems, signaling challenges, and trust-building represent core game-theoretic challenges in relationship formation and maintenance.",
+    psychologicalFactors:
+      "Attachment styles, emotional regulation capabilities, and childhood experiences profoundly shape relationship behaviors. Psychological research on self-disclosure, vulnerability, and intimacy reveals how fear of rejection creates cooperation barriers that rational analysis alone cannot overcome. Empathy and perspective-taking abilities correlate strongly with relationship satisfaction by helping partners overcome self-interested impulses.",
+    realWorldExamples: [
+      "Trust rebuilding after betrayals",
+      "Emotional labor and care work division",
+      "Financial transparency and resource sharing",
+      "Communication patterns during conflict resolution",
+    ],
+  },
+  custom: {
+    title: "Custom Topic",
+    description: "Create your own prisoner's dilemma scenario.",
+    context:
+      "Define your own context for exploring cooperation and competition dynamics. Choose any real-world or hypothetical situation where parties must decide between mutual cooperation and self-interested behavior.",
+    historicalBackground:
+      "Prisoner's dilemma scenarios appear throughout human history and across diverse domains. From international relations to business, environmental management to personal relationships, the tension between individual and collective interests is universal.",
+    gameTheoryApplication:
+      "Your custom scenario can explore variations on the classic prisoner's dilemma: asymmetric payoffs, multiple players, repeated interactions, incomplete information, or communication options. Each variation reveals different aspects of cooperation dynamics.",
+    psychologicalFactors:
+      "Consider how psychological factors might influence your scenario: trust levels, cultural differences, risk attitudes, emotional attachments, moral reasoning, and cognitive biases all affect how people navigate cooperation dilemmas. The most interesting scenarios often involve conflicts between rational self-interest and emotional or moral imperatives.",
+    realWorldExamples: [
+      "Create a scenario based on current events",
+      "Model a cooperation dilemma from your own experience",
+      "Explore hypothetical future challenges requiring cooperation",
+      "Examine cooperation patterns in a specific community or industry",
+    ],
+  },
+};
 
 type TopicValue = (typeof topicOptions)[number]["value"];
 
@@ -2955,6 +3092,92 @@ export default function GameTheorySimulator() {
     );
   };
 
+  // Component for topic info dialog
+  const TopicInfoDialog = ({ topicValue }: { topicValue: TopicValue }) => {
+    const explanation = topicExplanations[topicValue];
+
+    return (
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button
+            variant="outline"
+            size="sm"
+            className="ml-2 border-2 border-indigo-300 text-indigo-700 hover:bg-indigo-50 hover:border-indigo-400 font-medium"
+          >
+            <Info className="h-4 w-4" />
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold">
+              {explanation.title}
+            </DialogTitle>
+            <DialogDescription>{explanation.description}</DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-6 mt-4">
+            {/* Context */}
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold text-indigo-700">
+                Scenario Context
+              </h3>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {explanation.context}
+              </p>
+            </div>
+
+            {/* Historical Background */}
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold text-blue-700">
+                Historical Background
+              </h3>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {explanation.historicalBackground}
+              </p>
+            </div>
+
+            {/* Game Theory Application */}
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold text-green-700">
+                Game Theory Application
+              </h3>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {explanation.gameTheoryApplication}
+              </p>
+            </div>
+
+            {/* Psychological Factors */}
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold text-purple-700">
+                Psychological Factors
+              </h3>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {explanation.psychologicalFactors}
+              </p>
+            </div>
+
+            {/* Real World Examples */}
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold text-red-700">
+                Real World Examples
+              </h3>
+              <ul className="text-sm text-gray-700 space-y-1">
+                {explanation.realWorldExamples.map(
+                  (example: string, index: number) => (
+                    <li key={index} className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      {example}
+                    </li>
+                  )
+                )}
+              </ul>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-6xl mx-auto space-y-6">
@@ -3088,26 +3311,45 @@ export default function GameTheorySimulator() {
             <div>
               <h3 className="text-lg font-semibold mb-3">Topic</h3>
               <div className="space-y-4">
-                <Select value={selectedTopic} onValueChange={handleTopicChange}>
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {topicOptions.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <div className="flex items-center">
+                  <div className="flex-1">
+                    <Select
+                      value={selectedTopic}
+                      onValueChange={handleTopicChange}
+                    >
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {topicOptions.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  {selectedTopic !== "custom" && (
+                    <TopicInfoDialog topicValue={selectedTopic} />
+                  )}
+                </div>
 
                 {selectedTopic === "custom" && (
-                  <Textarea
-                    placeholder="Enter your custom topic..."
-                    value={customTopic}
-                    onChange={(e) => handleCustomTopicChange(e.target.value)}
-                    className="min-h-[80px]"
-                  />
+                  <div className="space-y-2">
+                    <div className="flex items-center">
+                      <Textarea
+                        placeholder="Enter your custom topic..."
+                        value={customTopic}
+                        onChange={(e) =>
+                          handleCustomTopicChange(e.target.value)
+                        }
+                        className="min-h-[80px]"
+                      />
+                      {customTopic.trim().length > 0 && (
+                        <TopicInfoDialog topicValue="custom" />
+                      )}
+                    </div>
+                  </div>
                 )}
               </div>
             </div>
